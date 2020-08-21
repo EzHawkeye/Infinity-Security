@@ -69,10 +69,10 @@ bot.on("message", async message => {
     if (message.channel.id === SUGGESTION_CHANNEL) {
         let embed = new Discord.RichEmbed()
         .setAuthor(message.member.nickname ? message.member.nickname : message.author.tag,message.author.displayAvatarURL)
-        .setColor(0x2894C2)
+        .setColor(15844367)
         .setTitle('Server Suggestie')
         .setDescription(message.content)
-        .setTimestamp(new Date());
+        .setTimestamp(message.member.nickname());
         message.channel.send(embed).then((message) => {
           const sent = message;
           sent.react('✅').then(() => {
