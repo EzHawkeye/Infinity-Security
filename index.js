@@ -72,15 +72,15 @@ bot.on("message", async message => {
         .setColor(15844367)
         .setTitle('Server Suggestie')
         .setDescription(message.content)
-        .setTimestamp(message.member.nickname());
+        .setTimestamp(new Date);
         message.channel.send(embed).then((message) => {
           const sent = message;
-          sent.react('✅').then(() => {
-            sent.react('❌').then(() => {
-              log(LOG_LEVELS.SPAM,'Completed suggestion message');
-            }).catch(console.error);
-          }).catch(console.error);
-        }).catch(console.error);
+          sent.react('✅');
+            sent.react('❌');
+          
+            
+          
+        });
         return message.delete();
       }
 
