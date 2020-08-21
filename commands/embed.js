@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-const SUGGESTION_CHANNEL = 721679910229377024;
+const SUGGESTION_CHANNEL = 738838962260672572;
 
 module.exports.run = async (bot, message, args) => {
 
