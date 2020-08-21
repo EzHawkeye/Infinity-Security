@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
-const SUGGESTION_CHANNEL = '721679910229377024'
+const SUGGESTION_CHANNEL = '738838962260672572'
 
 Discord.RichEmbed = Discord.MessageEmbed;
 
@@ -70,13 +70,13 @@ bot.on("message", async message => {
         let embed = new Discord.RichEmbed()
         .setAuthor(message.member.nickname ? message.member.nickname : message.author.tag,message.author.displayAvatarURL)
         .setColor(0x2894C2)
-        .setTitle('Suggestie')
+        .setTitle('Server Suggestie')
         .setDescription(message.content)
         .setTimestamp(new Date());
         message.channel.send(embed).then((message) => {
           const sent = message;
-          sent.react('👍').then(() => {
-            sent.react('👎').then(() => {
+          sent.react('✅').then(() => {
+            sent.react('❌').then(() => {
               log(LOG_LEVELS.SPAM,'Completed suggestion message');
             }).catch(console.error);
           }).catch(console.error);
