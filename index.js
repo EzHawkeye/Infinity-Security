@@ -1,15 +1,18 @@
 const Discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
-const SUGGESTION_CHANNEL = '738838962260672572'
+const SUGGESTION_CHANNEL = '86284582324276190'
+const SUGGESTION_CHANNEL2 = '746895559201259663'
 
 Discord.RichEmbed = Discord.MessageEmbed;
-
 
 const fs = require("fs");
 
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
+
+
+
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -38,7 +41,7 @@ bot.on("ready", async () => {
 
     console.log(`BOOMMM ${bot.user.username} is online!`);
 
-    bot.user.setActivity("🛠️ Hawk Dev..", { type: "WATCHING" });
+    bot.user.setActivity("🛠️ Infinity API", { type: "PLAYING" });
 
 })
 
@@ -68,21 +71,38 @@ bot.on("message", async message => {
 
     if (message.channel.id === SUGGESTION_CHANNEL) {
         let embed = new Discord.RichEmbed()
-        .setAuthor(message.member.nickname ? message.member.nickname : message.author.tag,message.author.displayAvatarURL)
-        .setColor(15844367)
-        .setTitle('Server Suggestie')
+        .setAuthor(message.member.nickname ? message.member.nickname : message.author.tag, message.author.displayAvatarURL())
+        .setColor(15158332)
+        .setTitle('Infinity Security Suggestions')
         .setDescription(message.content)
-        .setTimestamp(new Date);
+        .setFooter(`Community | ${message.author.tag}`)
         message.channel.send(embed).then((message) => {
           const sent = message;
-          sent.react('✅');
+          sent.react ('✅');
             sent.react('❌');
-          
             
           
         });
         return message.delete();
       }
+
+      if (message.channel.id === SUGGESTION_CHANNEL2) {
+        let embed = new Discord.RichEmbed()
+        .setAuthor(message.member.nickname ? message.member.nickname : message.author.tag, message.author.displayAvatarURL())
+        .setColor(15844367)
+        .setTitle('Poll')
+        .setDescription(message.content)
+        .setFooter(`Community | ${message.author.tag}`)
+        message.channel.send(embed).then((message) => {
+          const sent = message;
+          sent.react ('✅');
+            sent.react('❌');
+            
+          
+        });
+        return message.delete();
+      }
+
 
 }); 
 
