@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
-const SUGGESTION_CHANNEL = '862845823242076190'
-const SUGGESTION_CHANNEL2 = '746895559201259663'
+const SUGGESTION_CHANNEL = '86284582324276190'
+const SUGGESTION_CHANNEL2 = ''
 
 Discord.RichEmbed = Discord.MessageEmbed;
 
@@ -75,7 +75,7 @@ bot.on("message", async message => {
         .setColor(15158332)
         .setTitle('Infinity Security Suggestions')
         .setDescription(message.content)
-        .setFooter(`Community | ${message.author.tag}`)
+        .setFooter(`Infinity Sec.. | ${message.author.tag}`)
         message.channel.send(embed).then((message) => {
           const sent = message;
           sent.react ('✅');
