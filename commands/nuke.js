@@ -1,22 +1,18 @@
 const discord = require("discord.js");
 
-module.exports = {
-    description: "Nukes a given channel",
-    authorPermission: "ADMINISTRATOR",
-    run: async(client, message, args) => {
-        let reason = args.join(" ") || "No Reason"
-        if(!message.channel.deletable) {
-            return message.reply("This channel cannot be nuked!")
-        }
-        let newchannel = await message.channel.clone()
-        await message.channel.delete()
-        let embed = new MessageEmbed()
-        .setTitle("Channel Nuked")
-        .setDescription(reason)
-        .setImage('https://media0.giphy.com/media/oe33xf3B50fsc/200.gif')
-        await newchannel.send(embed)
-    }
+
+const client = new Discord.Client();
+const nuke = require("discord-channel-nuke");
+client.on("message", message => {
+
+{
+
+if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("you need \"MANAGE_CHANNELS\" permission to use nuke command!");
+
+nuke(message, "nuked this channel!"); // you can write content as you want to send nuked channel.
+
 }
+});
 
 module.exports.help = {
     name: "nuke"
