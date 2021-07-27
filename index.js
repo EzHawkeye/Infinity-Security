@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const botConfig = require("./botconfig.json");
 
-const SUGGESTION_CHANNEL = '862845823242076190'
+const SUGGESTION_CHANNEL = '869378395312644096'
 const SUGGESTION_CHANNEL2 = ''
 
 Discord.RichEmbed = Discord.MessageEmbed;
